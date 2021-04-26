@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(cors({origin: 'http://localhost:8000'}));
+app.use(cors({origin: 'edyfica-app.herokuapp.com'}));
 
 
 //Routes
