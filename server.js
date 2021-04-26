@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(cors({origin: 'edyfica-app.herokuapp.com'}));
+app.use(cors({origin: 'https://edyfica-app.herokuapp.com'}));
 
 
 //Routes
@@ -30,6 +30,6 @@ var Routes = require("./routes/index.js")
 app.use(Routes)
 
 //Start server
-app.listen(8080, () => {
+app.listen(80, () => {
     console.log('Server on port', app.get('port'));
 })
