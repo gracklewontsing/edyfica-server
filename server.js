@@ -31,6 +31,6 @@ var Routes = require("./routes/index.js")
 app.use(Routes)
 
 //Start server
-app.listen(() => {
+app.listen(process.env.PORT,'0.0.0.0', () => {
     console.log('Server on port', app.get('port'));
 })
