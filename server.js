@@ -14,7 +14,7 @@ const { mongoose } = require('./db');
 
 
 //Settings
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 8080);
 
 //Middlewares
 app.use(morgan('dev'));
@@ -30,6 +30,6 @@ var Routes = require("./routes/index.js")
 app.use(Routes)
 
 //Start server
-app.listen(80, () => {
+app.listen(() => {
     console.log('Server on port', app.get('port'));
 })
