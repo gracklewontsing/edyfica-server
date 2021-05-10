@@ -71,7 +71,7 @@ articleCtrl.deleteArticle = async(req,res) => {
         console.log(err);
       }
     })   
-    res.json("Deleted : ", docs);   
+    res.json("Deleted: ", doc);   
   });
 }
 
