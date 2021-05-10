@@ -39,7 +39,7 @@ articleCtrl.updateArticle = async(req,res) => {
     comments:req.body.comments,
     updatedAt: new Date().toLocaleTimeString('es-MX',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour:"2-digit", minute:"numeric",second:"numeric"})
   }  
-  Article.findById({_id:req.body._id}).exec(function(err) {
+  Article.find({_id:req.body._id}).exec(function(err) {
     if (err) {
       console.log(err);
     }    
@@ -56,7 +56,7 @@ articleCtrl.updateArticle = async(req,res) => {
 }
 
 articleCtrl.deleteArticle = async(req,res) => {
-  Article.findByIdAndDelete({_id:req.body._id}, function(err, docs){
+  Article.findAndDelete({_id:req.body._id}, function(err, docs){
     if (err){
       console.log(err)
     }
