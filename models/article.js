@@ -9,7 +9,7 @@ var Article = new Schema({
       default: new Date()},
     price:{type: Number},
     acquiredAt:{type: String},
-    area:{type: Boolean},
+    area:{type: String},
     createdAt: {
       type: String,
       default: new Date()
