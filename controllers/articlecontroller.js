@@ -66,7 +66,7 @@ articleCtrl.deleteArticle = async(req,res) => {
 }
 
 articleCtrl.getArticlesByArea = async(req,res) => {
-  Article.find({area: req.body.area}, function(err, docs){
+  Article.find({area: req.params.area}, function(err, docs){
     if (err){
       console.log(err);
     }
