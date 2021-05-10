@@ -43,6 +43,7 @@ articleCtrl.updateArticle = async(req,res) => {
     if (err) {
       console.log(err);
     }    
+    const obj = doc[doc.length - 1];    
     Article.findOneAndUpdate(
       { _id: obj._id }, article,
       { upsert: true } // return updated post      
@@ -56,13 +57,21 @@ articleCtrl.updateArticle = async(req,res) => {
 }
 
 articleCtrl.deleteArticle = async(req,res) => {
-  Article.findAndDelete({_id:req.body._id}, function(err, docs){
+  Article.find({_id:req.body._id}).exec(function(err){
+
     if (err){
       console.log(err)
     }
-    else{
-      res.json("Deleted : ", docs);
-    }
+    const obj = doc[doc.length - 1];   
+
+    Article.findOneAndDelete(
+      { _id: obj._id }
+    ).exec(function(err) {
+      if (err) {
+        console.log(err);
+      }
+    })   
+    res.json("Deleted : ", docs);   
   });
 }
 
