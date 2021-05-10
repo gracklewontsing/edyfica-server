@@ -57,20 +57,10 @@ articleCtrl.updateArticle = async(req,res) => {
 }
 
 articleCtrl.deleteArticle = async(req,res) => {
-  Article.find({_id:req.body._id}).exec(function(err,doc){
-
+  Article.findOneAndDelete({_id:req.body._id}).exec(function(err,doc){
     if (err){
       console.log(err)
-    }
-    const obj = doc[doc.length - 1];   
-
-    Article.findOneAndDelete(
-      { _id: obj._id }
-    ).exec(function(err) {
-      if (err) {
-        console.log(err);
-      }
-    })   
+    }      
     res.json("Deleted: ", doc);   
   });
 }
