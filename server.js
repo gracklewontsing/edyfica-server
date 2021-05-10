@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require("body-parser");
-const passport = require('passport');
+//const passport = require('passport');
 
 
 
@@ -17,18 +17,20 @@ const { mongoose } = require('./db');
 app.set('port', process.env.PORT || 8080);
 
 //Middlewares
+app.options('*', cors())
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.options('*', cors())
 app.use(cors());
 //app.use(cors({origin: 'https://edyfica-app.herokuapp.com/'}));
+
 
 
 //Routes
 var Routes = require("./routes/index.js")
 app.use(Routes)
+
 
 //Start server
 app.listen(process.env.PORT,'0.0.0.0', () => {
