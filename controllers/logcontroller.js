@@ -33,6 +33,7 @@ logCtrl.createLogEntry = async(req,res) => {
     const nowDayTime = today.toLocaleDateString('es-MX', options) + " " +today.toLocaleTimeString('en-US')
     const entry = {
       full_name: req.body.full_name,
+      entryComments:req.body.entryComments,
       entryDayTime: nowDayTime,      
       rawEntry: rawNow,
       complete: false
@@ -134,6 +135,7 @@ logCtrl.updateLogExit = async(req, res) => {
         $set: {
           exitDayTime: nowDayTime,
           rawExit: rawNow,
+          exitComments: req.body.exitComments,
           complete: true,
           duration: timeStr
         }
